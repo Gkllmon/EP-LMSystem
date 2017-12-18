@@ -1,0 +1,38 @@
+<form class="container" [formGroup]="formModel">
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('minlength','username')||
+                          formModel.hasError('maxlength','username')||
+                          formModel.hasError('required','username')">
+    <label>用户名：</label>
+    <input formControlName="username" type="text" class="form-control" placeholder="2017218023">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','username')">
+      用户名不能为空
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','username')">
+      用户名至少8位
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','username')">
+      用户名最多12位
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('minlength','password')||
+                          formModel.hasError('maxlength','password')||
+                          formModel.hasError('required','password')">
+    <label>密码：</label>
+    <input formControlName="password" type="password" class="form-control" placeholder="1234567890">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','password')">
+      密码至少8位
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','password')">
+      密码最多12位
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','password')">
+      密码不能为空
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4">
+    <button class="btn btn-primary btn-block" type="button" (click)="login()"  *ngIf="!userService.isLoggedIn">Login</button>
+    <button class="btn btn-primary btn-block" type="button" (click)="logout()" *ngIf="userService.isLoggedIn">Logout</button>
+  </div>
+</form>

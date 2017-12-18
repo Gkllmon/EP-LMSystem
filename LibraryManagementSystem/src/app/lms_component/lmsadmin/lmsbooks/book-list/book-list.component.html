@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div>
+    <label>检索词:  {{this.keyWord}}  检索到:  {{this.resultCount}}  条结果</label>
+  </div>
+  <div>
+    <table  id="customers">
+      <caption>图书信息</caption>
+      <thead>
+      <tr>
+        <th>图书编号</th>
+        <th>图书名称</th>
+        <th>图书价格</th>
+        <th>图书作者</th>
+        <th>出版社</th>
+        <th>类型</th>
+        <th>借阅次数</th>
+        <th *ngIf="this.userService.currentUser&&this.userService.currentUser.type==='admin'">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.cencern}}</td>
+        <td>{{book.type}}</td>
+        <td>{{book.borrowSum}}</td>
+        <td *ngIf="this.userService.currentUser&&this.userService.currentUser.type==='admin'">
+          <a [routerLink]="['../../mdetail',book.id]">修改</a>
+          <a (click)="onDelete(book.id)">删除</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

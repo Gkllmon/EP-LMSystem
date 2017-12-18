@@ -1,0 +1,62 @@
+<form *ngIf="this.userService.currentUser" class="container-fluid" [formGroup]="formModel">
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength','readerid')">
+    <label for="">工号：</label>
+    <input formControlName="readerid" type="text" [ngModel]="this.userService.currentUser.userId" class="form-control" placeholder="工号" disabled>
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readerid')">
+      工号至少8位
+    </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('maxlength','readersex')">
+    <label>性别：</label>
+    <input formControlName="readersex" type="text" [ngModel]="this.userService.currentUser.sex" class="form-control" placeholder="性别">
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','readersex')">
+      不超过4个字符
+     </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('maxlength','readerage')">
+    <label>年龄：</label>
+    <input formControlName="readerage" type="text" [ngModel]="this.userService.currentUser.age" class="form-control" placeholder="年龄">
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','readerage')">
+      不超过3个字符
+     </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength','readername')">
+    <label>姓名：</label>
+    <input formControlName="readername" type="text" [ngModel]="this.userService.currentUser.name" class="form-control" placeholder="姓名">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readername')">
+      至少8位
+     </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength','readertype')">
+    <label>类型：</label>
+    <input formControlName="readertype" type="text" [ngModel]="this.userService.currentUser.type" class="form-control" placeholder="类型" disabled>
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readertype')">
+      至少8位
+     </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength','readerphone')">
+    <label>电话：</label>
+    <input formControlName="readerphone" type="text" [ngModel]="this.userService.currentUser.phone" class="form-control" placeholder="电话">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readerphone')">
+      至少8位
+     </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength','readeremail')">
+    <label>邮箱：</label>
+    <input formControlName="readeremail" type="text" [ngModel]="this.userService.currentUser.email" class="form-control" placeholder="邮箱">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readeremail')">
+      至少8位
+     </span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength','readerpassword')">
+    <label>密码：</label>
+    <input formControlName="readerpassword" type="text" [ngModel]="this.userService.currentUser.password" class="form-control" placeholder="密码">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readerpassword')">
+      至少8位
+     </span>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" type="button" (click)="onCancel()">重置</button>
+    <button class="btn btn-primary btn-block" type="button" (click)="onSave()">确认</button>
+  </div>
+</form>

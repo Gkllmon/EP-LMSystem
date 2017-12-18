@@ -1,0 +1,98 @@
+<form class="container" [formGroup]="formModel">
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('minlength','readerid')||
+                          formModel.hasError('maxlength','readerid')||
+                          formModel.hasError('required','readerid')">
+    <label>账号：</label>
+    <input formControlName="readerid" type="text" class="form-control" placeholder="2017218023">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readerid')">
+      账号是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readerid')">
+      账号至少8位
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','readerid')">
+      账号最多12位
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('sex','readersex')||
+                          formModel.hasError('required','readersex')">
+    <label>性别：</label>
+    <input formControlName="readersex" type="text" class="form-control" placeholder="男、女">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readersex')">
+      性别是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('sex','readersex')">
+      男、女
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('age','readerage')||
+                          formModel.hasError('required','readerage')">
+    <label>年龄：</label>
+    <input formControlName="readerage" type="text" class="form-control" placeholder="23">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readerage')">
+      年龄是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('age','readerage')">
+      10 - 100
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('maxlength','readername')||
+                          formModel.hasError('required','readername')">
+    <label>用户名：</label>
+    <input formControlName="readername" type="text" class="form-control" placeholder="纪春洋">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readername')">
+      用户名是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','readername')">
+      用户名最多12位
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('mobile','readerphone')||
+                          formModel.hasError('required','readerphone')">
+    <label>手机号：</label>
+    <input formControlName="readerphone" type="text" class="form-control" placeholder="15176271022">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readerphone')">
+      手机号是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('mobile','readerphone')">
+      填写正确的手机号
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('email','readeremail')||
+                          formModel.hasError('required','readeremail')">
+    <label>邮箱：</label>
+    <input formControlName="readeremail" type="text" class="form-control" placeholder="759107369@qq.com">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readeremail')">
+      邮箱是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('email','readeremail')">
+      填写正确的邮箱号
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4"
+       [class.has-error]="formModel.hasError('minlength','readerpassword')||
+                          formModel.hasError('maxlength','readerpassword')||
+                          formModel.hasError('required','readerpassword')">
+    <label>密码：</label>
+    <input formControlName="readerpassword" type="password" class="form-control" placeholder="1234567890">
+    <span class="help-block" [class.hidden]="!formModel.hasError('required','readerpassword')">
+      密码是必填项
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readerpassword')">
+      密码至少8位
+    </span>
+    <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','readerpassword')">
+      密码最多12位
+    </span>
+  </div>
+  <div class="form-group col-md-4 col-sm-offset-4">
+    <button class="btn btn-primary btn-block" type="button" (click)="register()">Register</button>
+    <button class="btn btn-primary btn-block" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>

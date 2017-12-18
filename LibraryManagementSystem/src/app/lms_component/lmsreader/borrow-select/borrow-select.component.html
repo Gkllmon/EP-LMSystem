@@ -1,0 +1,31 @@
+<div *ngIf="this.userService.currentUser&&this.userService.currentUser.book">
+<table class="table">
+    <caption><h2>{{this.userService.currentUser.name}}  借阅图书的信息</h2></caption>
+    <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>author</th>
+          <th>借出时间</th>
+          <th>应还时间</th>
+          <th>操作</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let borrow of this.userService.currentUser.book" >
+        <tr>
+            <th>{{borrow.id}}</th>
+            <th>
+              <a [routerLink]="['../bookDetailInfo',borrow.id]">
+              {{borrow.name}}
+              </a>
+            </th>
+            <th>{{borrow.author}}</th>
+            <th>{{borrow.startTime | date: "y-MM-dd HH:mm:ss"}}</th>
+            <th>{{borrow.endTime | date: "y-MM-dd HH:mm:ss"}}</th>
+            <th>
+                <a (click)="onRestore(borrow.id)">续借</a>
+            </th>
+        </tr>
+    </tbody>
+</table>
+</div>

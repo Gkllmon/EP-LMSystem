@@ -1,0 +1,27 @@
+<div>
+  <form class="container-fluid" [formGroup]="formModel">
+    <div class="form-group"
+         [class.has-error]="formModel.hasError('minlength','readerid')||
+                            formModel.hasError('maxlength','readerid')||
+                            formModel.hasError('required','readerid')">
+      <label>读者编号：</label>
+      <input formControlName="readerid" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','readerid')">
+      编号是必填项
+    </span>
+      <span class="help-block" [class.hidden]="!formModel.hasError('minlength','readerid')">
+      编号至少8位
+    </span>
+      <span class="help-block" [class.hidden]="!formModel.hasError('maxlength','readerid')">
+      编号最多12位
+    </span>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary btn-block" (click)="SearchOne()">条件搜索</button>
+      <button type="button" class="btn btn-primary btn-block" (click)="SearchAll()">全部搜索</button>
+    </div>
+  </form>
+</div>
+<div class="distance">
+  <router-outlet></router-outlet>
+</div>

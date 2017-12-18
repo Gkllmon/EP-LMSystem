@@ -1,0 +1,57 @@
+<div *ngIf="this.book">
+  <form class="container-fluid" [formGroup]="formModel">
+    <div class="form-group" [class.has-error]="formModel.hasError('required','bookid')">
+      <label>图书编号：</label>
+      <input formControlName="bookid" [(ngModel)]="book.id" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','bookid')">
+        编号是必填项
+      </span>
+    </div>
+    <div class="form-group" [class.has-error]="formModel.hasError('required','bookname')">
+      <label>图书名称：</label>
+      <input formControlName="bookname" [(ngModel)]="book.name" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','bookname')">
+        名称是必填项
+      </span>
+    </div>
+    <div class="form-group" [class.has-error]="formModel.hasError('required','booktype')">
+      <label>图书类型：</label>
+      <input formControlName="booktype" [(ngModel)]="book.type" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','booktype')">
+        类型是必填项
+      </span>
+    </div>
+    <div class="form-group" [class.has-error]="formModel.hasError('required','bookprice')">
+      <label>图书价格：</label>
+      <input formControlName="bookprice" [(ngModel)]="book.price" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','bookprice')">
+        价格是必填项
+      </span>
+    </div>
+    <div class="form-group" [class.has-error]="formModel.hasError('required','bookauthor')">
+      <label>图书作者：</label>
+      <input formControlName="bookauthor" [(ngModel)]="book.author" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','bookauthor')">
+        作者是必填项
+      </span>
+    </div>
+    <div class="form-group" [class.has-error]="formModel.hasError('required','bookcencern')">
+      <label>出版社：</label>
+      <input formControlName="bookcencern" [(ngModel)]="book.cencern" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','bookcencern')">
+        出版社是必填项
+      </span>
+    </div>
+    <div class="form-group" [class.has-error]="formModel.hasError('required','bookborrowSum')">
+      <label>图书数目：</label>
+      <input formControlName="bookborrowSum" [(ngModel)]="book.borrowSum" type="text" class="form-control">
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','bookborrowSum')">
+        数目是必填项
+      </span>
+    </div>
+    <div class="form-group">
+      <button type="button" (click)="onCancel()" class="btn btn-primary btn-block">取消</button>
+      <button type="button" (click)="onSave()" class="btn btn-primary btn-block">保存</button>
+    </div>
+  </form>
+</div>

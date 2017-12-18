@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">图书管理</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a>个人资料</a></li>
+        <li><a>借阅查询</a></li>
+        <li><a>图书查询</a></li>
+      </ul>
+      <ul *ngIf="this.user" class="nav navbar-nav navbar-right">
+          <li><a>欢迎您，{{this.user.name}}</a></li>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a [routerLink]="['/login']" (click)="onLogout()">退出</a></li>
+        </ul>
+    </div>
+  </div>
+  </nav>

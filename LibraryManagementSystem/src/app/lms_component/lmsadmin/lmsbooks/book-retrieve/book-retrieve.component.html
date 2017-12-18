@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav>
+      <a [routerLink]="['/login']">登录</a>
+      <a [routerLink]="['/register']">注册</a>
+    </nav>
+  </div>
+  <div class="row divmargin">
+    <form class="container" [formGroup]="formModel" (ngSubmit)="onSubmit()" novalidate>
+      <div class="divborder" [class.has-error]="formModel.hasError('required','bookname')">
+        <input formControlName="bookname" type="text" class="form-control" placeholder="图书名称">
+        <span>
+          <button type="submit" class="btn btn-primary btn-block">检索</button>
+        </span>
+        <span class="help-block" [class.hidden]="!formModel.hasError('required','bookname')">
+          图书名是必填项
+        </span>
+      </div>
+    </form>
+  </div>
+</div>

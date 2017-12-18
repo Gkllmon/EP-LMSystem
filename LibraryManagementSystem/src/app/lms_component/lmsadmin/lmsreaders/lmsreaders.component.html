@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="grid grid-pad">
+      <a [routerLink]="['./']" class="col-1-4">
+        <div class="module">
+          <h4>显示</h4>
+        </div>
+      </a>
+      <a [routerLink]="['./detail',201701]" class="col-1-4">
+        <div class="module">
+          <h4>添加</h4>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+      <router-outlet></router-outlet>
+  </div>
+</div>

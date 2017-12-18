@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row divmargin">
+    <form class="container" [formGroup]="formModel" (ngSubmit)="onSubmit()" novalidate>
+      <div>
+        <input formControlName="bookname" type="text" class="form-control" placeholder="图书名称">
+        <span>
+          <button type="submit" class="btn btn-primary btn-block">条件检索</button>
+        </span>
+        <span>
+          <button type="button" (click)="OnInsert()" class="btn btn-primary btn-block">插入图书</button>
+        </span>
+      </div>
+    </form>
+  </div>
+  <div class="row distance">
+    <router-outlet></router-outlet>
+  </div>
+</div>

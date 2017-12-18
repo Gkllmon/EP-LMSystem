@@ -1,0 +1,10 @@
+div {
+  width: 400px;
+}
+
+button {
+  float:right;
+  width: 100px;
+  height: 35px;
+  margin:5px;
+}

@@ -1,0 +1,37 @@
+<table id="customers">
+  <thead>
+    <tr>
+      <th>读者编号</th>
+      <th>读者性别</th>
+      <th>读者年龄</th>
+      <th>读者姓名</th>
+      <th>电子邮箱</th>
+      <th>手机号码</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="this.readers">
+    <tr *ngFor="let reader of readers">
+      <td>{{reader.userId}}</td>
+      <td>{{reader.sex}}</td>
+      <td>{{reader.age}}</td>
+      <td>{{reader.name}}</td>
+      <td>{{reader.email}}</td>
+      <td>{{reader.phone}}</td>
+      <td>
+        <ul class="items">
+          <li>
+            <a [routerLink]="['../detail', reader.userId]">
+              <span class="badge text">修改</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="badge text" (click)="onDelete(reader.userId)">删除</span>
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
